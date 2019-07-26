@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include<string.h>
 #include "Matrices.cpp"
 #include "Vectores.cpp"
 
@@ -267,8 +268,36 @@ int main(){
              break;
          }
     	case '3': 
+    	char opcion2;
+    	do{
              system("cls");  
-			 v.imprimir();       
+			 cout<<"1. Imprimir lista\n"
+			 		"2. Eliminar ultimo\n"
+					"3. Limpiar lista\n"
+					"Ingrese una opcion: ";
+			cin>>opcion2;
+			
+			switch (opcion2){
+				case '1':{
+					system("cls");
+					v.imprimir();
+					system("pause");
+					break;
+				}
+				case '2':{
+					v.getOp().erase(v.getOp().end() -1); 
+					v.getExito().erase(v.getExito().end() -1);
+					cout<<"Se elimino el ultimo elemento de la bitacora exitosamente"<<endl; 
+					break;
+				}
+				case '3':{
+					v.getOp().clear();
+					v.getExito().clear();
+					cout<<"La bitacora se elimino exitosamente"<<endl; 
+					break;
+				}
+			}
+		}while (opcion!='4');
              break;
         case '4':
              cout<<endl; 
